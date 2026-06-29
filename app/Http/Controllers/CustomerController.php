@@ -75,6 +75,12 @@ class CustomerController extends Controller
 
     public function destroy(Customer $customer): RedirectResponse
     {
+        if ($customer->invoices()->exists()) {
+            return redirect()
+                ->route('customers.index')
+                ->withErrors(['customer' => 'This customer is used by existing invoices and cannot be deleted.']);
+        }
+
         $customer->delete();
 
         return redirect()

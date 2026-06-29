@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function (): void {
 
     Route::resource('users', UserController::class)->only(['index', 'store', 'update', 'destroy']);
     Route::resource('customers', CustomerController::class)->only(['index', 'store', 'update', 'destroy']);
-    Route::resource('products', ProductController::class)->only(['index', 'store', 'destroy']);
+    Route::resource('products', ProductController::class)->only(['index', 'store', 'update', 'destroy']);
     Route::resource('invoices', InvoiceController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
