@@ -1,120 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERP Admin Panel</title>
+    <title>Welcome | Industrial ERP System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            overflow-x: hidden;
-            background-color: #f8f9fa;
-        }
-
-        #sidebar-wrapper {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #f8fafc;
             min-height: 100vh;
-            width: 250px;
-            background-color: #212529;
-            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
         }
-
-        #sidebar-wrapper .sidebar-heading {
-            padding: 1.5rem;
-            font-size: 1.2rem;
-            color: #fff;
-            font-weight: bold;
-            border-bottom: 1px solid #343a40;
+        .hero-section {
+            padding: 5rem 0 3rem 0;
         }
-
-        #sidebar-wrapper .list-group-item {
-            background: none;
-            border: none;
-            color: #c2c7d0;
-            padding: 0.75rem 1.5rem;
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            transition: transform 0.2s, background 0.2s;
         }
-
-        #sidebar-wrapper .list-group-item:hover,
-        #sidebar-wrapper .list-group-item.active {
-            background-color: #343a40;
-            color: #fff;
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
         }
-
-        #page-content-wrapper {
-            width: 100%;
-        }
-
-        @media print {
-
-            #sidebar-wrapper,
-            .navbar,
-            .btn,
-            .no-print {
-                display: none !important;
-            }
-
-            #page-content-wrapper {
-                width: 100% !important;
-                padding: 0 !important;
-            }
+        .system-badge {
+            background-color: #38bdf8;
+            color: #0f172a;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
         }
     </style>
 </head>
-
 <body>
-    <div class="d-flex" id="wrapper">
-        <div id="sidebar-wrapper">
-            <div class="sidebar-heading"><i class="fa-solid fa-gears me-2"></i> Industrial ERP</div>
-            <div class="list-group list-group-flush mt-3">
-                <a href="#"
-                    class="list-group-item list-group-item-action {{ Request::is('dashboard*') ? 'active' : '' }}"><i
-                        class="fa-solid fa-gauge me-2"></i> Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action"><i
-                        class="fa-solid fa-users-gear me-2"></i> Users</a>
-                <a href="#" class="list-group-item list-group-item-action"><i
-                        class="fa-solid fa-address-book me-2"></i> Customers</a>
-                <a href="#" class="list-group-item list-group-item-action"><i
-                        class="fa-solid fa-boxes-stacked me-2"></i> Products</a>
-                <a href="#" class="list-group-item list-group-item-action"><i
-                        class="fa-solid fa-file-invoice-dollar me-2"></i> Invoices</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent pt-4">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center fw-bold fs-4 text-white" href="#">
+                <i class="fa-solid fa-gears text-info me-2"></i> NEXUS ERP
+            </a>
+            <div class="ms-auto">
+                <a href="{{ route('login') }}" class="btn btn-outline-light px-4 py-2 fw-semibold rounded-pill shadow-sm">
+                    <i class="fa-solid fa-right-to-bracket me-2"></i> Administrative Login
+                </a>
             </div>
         </div>
+    </nav>
 
-        <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4 no-print">
-                <span class="navbar-brand mb-0 h1">Admin Dashboard</span>
-                <div class="ms-auto">
-                    <span class="me-3 text-muted"><i class="fa-solid fa-user me-1"></i> Admin</span>
-                    <a href="#" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-sign-out-alt"></i>
-                        Logout</a>
+    <div class="container hero-section my-auto">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
+                <span class="badge system-badge px-3 py-2 mb-3 rounded-pill">v1.0 Production Platform</span>
+                <h1 class="display-4 fw-extrabold text-white mb-3">
+                    Industrial Resource <br><span class="text-info">Planning & Inventory</span>
+                </h1>
+                <p class="lead text-secondary mb-4 fs-5">
+                    A centralized operations environment designed to track internal team structures, manage customer logs, trace raw product stock metrics, and process transactional invoicing seamlessly.
+                </p>
+                <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                    <a href="{{ route('login') }}" class="btn btn-info btn-lg px-5 py-3 fw-bold rounded-pill text-dark shadow">
+                        Enter Workspace <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </a>
                 </div>
-            </nav>
-
-            <div class="container-fluid p-4">
-                @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="p-4 feature-card h-100">
+                            <div class="text-info mb-3 fs-3"><i class="fa-solid fa-users-gear"></i></div>
+                            <h5 class="text-white fw-bold">User Management</h5>
+                            <p class="text-muted small mb-0">Role assignment variables and secure access control panels for active enterprise users.</p>
+                        </div>
                     </div>
-                @endif
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul class="mb-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                    <div class="col-md-6">
+                        <div class="p-4 feature-card h-100">
+                            <div class="text-info mb-3 fs-3"><i class="fa-solid fa-address-book"></i></div>
+                            <h5 class="text-white fw-bold">Customer Directory</h5>
+                            <p class="text-muted small mb-0">Complete CRM logging infrastructure monitoring billing vectors, phone records, and physical routing addresses.</p>
+                        </div>
                     </div>
-                @endif
-
-                @yield('content')
+                    <div class="col-md-6">
+                        <div class="p-4 feature-card h-100">
+                            <div class="text-info mb-3 fs-3"><i class="fa-solid fa-boxes-stacked"></i></div>
+                            <h5 class="text-white fw-bold">Live Stock Tracking</h5>
+                            <p class="text-muted small mb-0">Granular warehousing audits capturing unique product ledger codes, historical manufacturing costs, and live margins.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-4 feature-card h-100">
+                            <div class="text-info mb-3 fs-3"><i class="fa-solid fa-receipt"></i></div>
+                            <h5 class="text-white fw-bold">Atomic Invoicing</h5>
+                            <p class="text-muted small mb-0">Automated ledger processing directly synchronized with warehouse stocks via database transactions.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    @stack('scripts')
-</body>
+    <footer class="mt-auto py-4 bg-black bg-opacity-25 border-top border-secondary border-opacity-10 text-center text-muted small">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <div>
+                &copy; {{ date('Y') }} Nexus Industrial Systems. Authorized System Personnel Access Only.
+            </div>
+            <div class="d-flex gap-4">
+                <span><i class="fa-solid fa-circle text-success me-1 small"></i> DB Server: Connected</span>
+                <span><i class="fa-solid fa-shield-halved text-info me-1 small"></i> SSL Active</span>
+            </div>
+        </div>
+    </footer>
 
+</body>
 </html>
